@@ -47,13 +47,6 @@ class DataOptimization:
         print(self.df.columns)
         print("\n4. Initial data...\n")
         print(self.df.head())
-
-# Usage
-file_path = ''
-df = pd.read_csv(file_path)
-
+        
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
-
-data_optimizer = DataOptimization(df)
-data_optimizer.initial_exploration()
