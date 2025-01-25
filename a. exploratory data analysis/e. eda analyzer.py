@@ -2,6 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+from scipy.stats import kstest
 
 class EDAAnalyzer:
     def __init__(self, dataframe):
@@ -10,7 +11,6 @@ class EDAAnalyzer:
     def plot_boxplots(self, numerical_cols):
         for col in numerical_cols:
             plt.figure(figsize=(12, 6))
-            plt.subplot(1, 2, 2)
             sns.boxplot(y=self.df[col])
             plt.title(f'{col} boxplot')
             plt.show()
@@ -46,11 +46,8 @@ class EDAAnalyzer:
         plt.figure(figsize=(10, 8))
         sns.heatmap(corr, annot=True, linewidths=.5, cmap='coolwarm')
         plt.title('correlation matrix')
+        plt.show()
 
-class EDAAnalyzer:
-    def __init__(self, dataframe):
-        self.df = dataframe
-    
     def plot_pair_grid(self, numerical_cols):
         g = sns.PairGrid(self.df[numerical_cols])
         g.map_upper(sns.regplot, scatter_kws={'s': 10}, line_kws={'color': 'red'})
@@ -58,7 +55,7 @@ class EDAAnalyzer:
         g.map_diag(sns.histplot)
         plt.suptitle('Linear Regression Pair Plot', y=1.02)
         plt.show()
-    
+
     def perform_linear_regression(self, numerical_cols):
         for i in range(len(numerical_cols)):
             for j in range(i + 1, len(numerical_cols)):
@@ -71,7 +68,7 @@ class EDAAnalyzer:
                 print(f"Linear Regression Results: {y_col} vs {x_col}")
                 print(model.summary())
                 print("\n" + "="*50 + "\n")
-    
+
     def create_qqplots(self, numerical_cols):
         for i, col1 in enumerate(numerical_cols):
             for j, col2 in enumerate(numerical_cols):
@@ -84,4 +81,39 @@ class EDAAnalyzer:
                     plt.xlabel('theoretical quantiles')
                     plt.ylabel('sample quantiles')
                     plt.show()
+
+class RegressionAssumptionsAnalyzer:
+    def __init__(self, dataframe):
+        self.df = dataframe
+    
+    def check_normality(self, residuals):
+        stat, p_value = kstest(residuals, 'norm', args=(residuals.mean(), residuals.std()))
+        return p_value
+    
+    def plot_residuals(self, model):
+        residuals = model.resid
+        fitted_values = model.fittedvalues
+        plt.scatter(fitted_values, residuals, alpha=0.6)
+        plt.axhline(y=0, color='red', linestyle='--')
+        plt.xlabel("Fitted Values")
+        plt.ylabel("Residuals")
         plt.show()
+    
+    def check_assumptions(self, numerical_cols):
+        for i, col1 in enumerate(numerical_cols):
+            for j in range(i + 1, len(numerical_cols)):
+                print(f"| {col1} vs {numerical_cols[j]} |")
+                print("-" * 79)
+                
+                formula = f'{col1} ~ {numerical_cols[j]}'
+                model = smf.ols(formula, data=self.df).fit()
+                residuals = model.resid
+
+                p_value = self.check_normality(residuals)
+                print(f"-   Kolmogorov-Smirnov Test: p-value = {p_value}")
+                if p_value > 0.05:
+                    print("-   Residuals are normally distributed (K-S Test).\n")
+                else:
+                    print("-   Residuals are NOT normally distributed (K-S Test).\n")
+
+                self.plot_residuals(model)
