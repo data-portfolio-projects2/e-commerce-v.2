@@ -44,7 +44,7 @@ class DataIntegrity:
         self.print_column_summary()
 
 # Usage
-file_path = 'C:\\Users\\loydt\\Documents\\kaggle_datasets\\merch_sales.csv'
+file_path = ''
 df = pd.read_csv(file_path)
 
 data_integrity = DataIntegrity(df)
