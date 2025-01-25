@@ -1,11 +1,11 @@
-if (!require(gridExtra)) install.packages("gridExtra", dependencies = TRUE)
-library(gridExtra)
+load_required_packages <- function() {
+  if (!require(gridExtra)) install.packages("gridExtra", dependencies = TRUE)
+  library(gridExtra)
+}
 
-gender_location_table <- table(demographics$Gender, demographics$Location)
-gender_location_test <- chisq.test(gender_location_table)
-
-location_cluster_table <- table(demographics$Location, demographics$Cluster)
-location_cluster_test <- chisq.test(location_cluster_table)
+perform_chisq_test <- function(table_data) {
+  chisq.test(table_data)
+}
 
 create_bar_plot <- function(data, x_var, fill_var, title, x_lab, y_lab, test_stat, test_df, test_pvalue) {
   ggplot(data, aes(x = {{x_var}}, fill = {{fill_var}})) +
@@ -19,21 +19,20 @@ create_bar_plot <- function(data, x_var, fill_var, title, x_lab, y_lab, test_sta
              size = 3, hjust = 0.5)
 }
 
-gender_location_plot <- create_bar_plot(
-  demographics, Location, Gender, "Gender vs. Location", "Location", "Count", 
-  gender_location_test$statistic, gender_location_test$parameter, gender_location_test$p.value
-)
+create_donut_plot <- function(data, var, title) {
+  ggplot(data, aes(x = 2, fill = {{var}})) +
+    geom_bar(width = 1, show.legend = TRUE) +
+    coord_polar(theta = "y") +
+    labs(title = title) +
+    theme_void() +
+    theme(legend.position = "bottom")
+}
 
-location_cluster_plot <- create_bar_plot(
-  demographics, Cluster, Location, "Location vs. Cluster", "Cluster", "Count", 
-  location_cluster_test$statistic, location_cluster_test$parameter, location_cluster_test$p.value
-)
+arrange_plots <- function(plot1, plot2, plot3) {
+  grid.arrange(plot1, plot2, plot3, ncol = 2, nrow = 2)
+}
 
-gender_location_donut_plot <- ggplot(demographics, aes(x = 2, fill = Gender)) +
-  geom_bar(width = 1, show.legend = TRUE) +
-  coord_polar(theta = "y") +
-  labs(title = "Gender Distribution in Location") +
-  theme_void() +
-  theme(legend.position = "bottom")
-
-grid.arrange(gender_location_plot, location_cluster_plot, gender_location_donut_plot, ncol = 2, nrow = 2)
+run_eda <- function(demographics) {
+  load_required_packages()
+  
+  
