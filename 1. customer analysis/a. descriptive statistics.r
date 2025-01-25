@@ -42,15 +42,3 @@ run_eda_pipeline <- function(demographics) {
   eda <- EDA$new(data = demographics)
   
   eda$print_data()
-  
-  descriptive_stats <- eda$descriptive_stats()
-  print("Descriptive Statistics")
-  print(descriptive_stats)
-  
-  categorical_summary <- eda$summary_categorical()
-  print("Location Distribution")
-  print(categorical_summary$Location_Distribution)
-  
-  print("Gender Distribution")
-  print(categorical_summary$Gender_Distribution)
-}
