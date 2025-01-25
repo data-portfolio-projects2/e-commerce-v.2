@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6f283342-6264-4c71-a9ca-7d2d12c4f15a)
+![image](https://github.com/user-attachments/assets/55ed1ad1-9710-4d69-bd58-2655a641b1af)
 
 ```r
 Too few points to calculate an ellipse
