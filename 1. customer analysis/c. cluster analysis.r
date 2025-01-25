@@ -1,7 +1,3 @@
-library(dplyr)
-library(cluster)
-library(factoextra)
-
 set.seed(123)
 
 create_demographics_data <- function() {
