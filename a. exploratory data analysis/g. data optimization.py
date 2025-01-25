@@ -26,9 +26,9 @@ class DataOptimization:
         total_count = len(self.df)
         outlier_proportions = outlier_counts / total_count
 
-        print("*******************************************************************************")
-        print(f"                          {col} outlier analysis               ")
-        print("*******************************************************************************\n")
+        print(f"\n{'=' * 79}")
+        print(f"                    {col} Outlier Analysis")
+        print(f"{'=' * 79}\n")
         print("| frequency count |")
         print("-" * 79)
         print(f"{outlier_counts}\n")
