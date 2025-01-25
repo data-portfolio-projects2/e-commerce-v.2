@@ -42,10 +42,3 @@ class DataIntegrity:
         self.handle_missing_values(missing_value_rows_file)
         self.handle_order_id_duplicates(duplicate_order_id_file)
         self.print_column_summary()
-
-# Usage
-file_path = ''
-df = pd.read_csv(file_path)
-
-data_integrity = DataIntegrity(df)
-data_integrity.perform_data_integrity_checks('missing_values.csv', 'duplicate_order_ids.csv')
