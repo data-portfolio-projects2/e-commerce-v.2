@@ -13,4 +13,4 @@ summary_stats <- campaign_data %>%
   )
 
 cat("Descriptive Statistics:\n")
-print(summary_stats)
+
