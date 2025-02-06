@@ -1,6 +1,4 @@
 import itertools
-import pandas as pd
-import numpy as np
 from scipy.stats import chi2_contingency, chisquare
 
 class AnalysisHelper:
