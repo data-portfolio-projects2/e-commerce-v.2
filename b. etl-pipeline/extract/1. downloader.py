@@ -7,3 +7,4 @@ def initiate_os(self):
 def download_data(self, dataset_name, download_dir):
         """Downloads the dataset from Kaggle"""
 
+def __call__(self):
