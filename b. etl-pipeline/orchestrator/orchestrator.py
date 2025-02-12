@@ -12,8 +12,8 @@ class Extract:
         downloader = DataDownloader()
         downloader()
     
-    def extract(self):
-        extractor = CSVExtractor(path.csv)
+    def extract(self, file_path):
+        extractor = CSVExtractor(file_path)
         df = extractor.extract_csv()
         return df
 
@@ -27,13 +27,13 @@ class Extract:
         missing_rows = analyzer.check_missing()
         return missing_rows
 
-    def save(self, missing_rows):
-        saver = DataSaver(missing_rows)
-        saver() 
+    def save(self, data):
+        saver = DataSaver(data)
+        saver.save_missing()
 
     def __call__(self):
         self.download()
-        df = self.extract()
+        df = self.extract(path.csv)
         df = df.compute()
         df = self.savedf(df)
         df = self.analyze(df)
@@ -71,3 +71,4 @@ class Transform:
         df = self.col_replace_(df)
 
 
+        
