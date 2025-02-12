@@ -17,3 +17,6 @@ def memory_usage(func):
 
 def memory_usage(func):
     """Decorator to measure system memory usage before and after a function runs."""
+
+def memory_usage(func):
+    """Decorator to measure RAM usage with an animated progress bar."""
