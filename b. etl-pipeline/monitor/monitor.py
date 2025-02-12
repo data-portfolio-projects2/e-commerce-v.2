@@ -14,3 +14,6 @@ def time_execution(func):
    
 def memory_usage(func):
     """Decorator to measure memory usage of a pandas DataFrame."""
+
+def memory_usage(func):
+    """Decorator to measure system memory usage before and after a function runs."""
