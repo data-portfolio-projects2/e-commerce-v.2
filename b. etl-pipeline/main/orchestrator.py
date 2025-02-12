@@ -1,4 +1,8 @@
 from orchestrator import Extract
+from orchestrator import Transform
 
-extractor = Extract()
-extractor.call_extract()
+extract = Extract()
+extract()
+
+transform = Transform()
+transform()
