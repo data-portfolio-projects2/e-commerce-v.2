@@ -1,5 +1,5 @@
 class DataAnalyzer(metaclass=Static):
-
+        
         def preview_data(df):
             """Preview the data"""
 
