@@ -1,5 +1,5 @@
-def __init__(self, data):
-
 @time_execution
-def extract_csv(self, file_path):
+@time_execution
+def extract_csv():
+    """Extracts CSV for preview"""
 
