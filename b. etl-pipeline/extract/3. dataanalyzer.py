@@ -1,13 +1,10 @@
-def __init__(self, df):
+class DataAnalyzer(metaclass=Static):
 
-@time_execution
-def preview_data(self):
-        """Preview the data"""
+        def preview_data(df):
+                """Preview the data"""
 
-@time_execution
-def check_missing(self):
-        """Check for missing data"""
-
-@time_execution
-def check_duplicates(self):
-        """Check for duplicate data"""
+        def check_missing(df):
+                """Check for missing data"""
+        
+        def check_duplicates(df):
+                """Check for duplicate data"""
