@@ -10,6 +10,4 @@ class DataDownloader(metaclass=static):
         """Downloads the dataset from Kaggle"""
       
     def __call__(self):  
-        self.authenticate_kaggle()
-        self.initiate_os()
-        self.download_data()
+    
