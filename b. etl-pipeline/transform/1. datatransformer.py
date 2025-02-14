@@ -1,7 +1,7 @@
-class DataTransformer(metaclass=Static):
+class DataTransformer(metaclass=xtatic):
 
-    @time_execution
-    @memory_usage
+    @time
+    @memory
     def extract_df(file_path):
         """Extract dask data"""
     
