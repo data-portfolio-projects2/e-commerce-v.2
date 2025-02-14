@@ -1,24 +1,25 @@
-class Transform(metaclass=Static): 
+
+class Transform(metaclass=static): 
     
     def df_extract(file_path):
-        df = DataTransformer.extract_df(file_path)
+        df = transform.extract_df(file_path)
         df = df.drop(['Add-ons Purchased'], axis=1)
         return df
     
     def to_string(df):
-        df = DataTransformer.to_string(df)
+        df = transform.to_string(df)
         return df
     
     def col_lowercase(df):
-        df = DataTransformer.lowercase_col(df)
+        df = transform.lowercase_col(df)
         return df
     
     def col_remove_space(df):
-        df = DataTransformer.strip_space(df)
+        df = transform.strip_space(df)
         return df
     
     def col_replace_(df):
-        df = DataTransformer.replace_(df)
+        df = transform.replace_(df)
         return df
     
     def savedf(df):
@@ -33,3 +34,6 @@ class Transform(metaclass=Static):
         df = self.col_remove_space(df)
         df = self.col_replace_(df)
         df = self.savedf(df)
+
+
+
