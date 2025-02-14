@@ -1,11 +1,12 @@
-class Extract(metaclass=Static):
+
+class Extract(metaclass=static):
 
     def download():
-        download = DataDownloader()
+        download = load()
         download()
 
     def extract():
-        df = CSVExtractor.extract_csv()
+        df = csv.extract_csv()
         return df
         
     def savedf(df):
@@ -13,12 +14,12 @@ class Extract(metaclass=Static):
         return df
 
     def analyze(df):
-        DataAnalyzer.preview_data(df)
-        df = DataAnalyzer.check_missing(df)
+        analyze.preview_data(df)
+        df = analyze.check_missing(df)
         return df
 
     def save(df):
-        return DataSaver.save_missing(df)
+        return save.save_missing(df)
 
     def __call__(self):
         self.download()
@@ -27,3 +28,4 @@ class Extract(metaclass=Static):
         df = self.savedf(df)
         df = self.analyze(df)
         self.save(df)
+        
