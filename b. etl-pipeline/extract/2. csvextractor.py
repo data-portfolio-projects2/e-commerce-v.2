@@ -1,7 +1,7 @@
 class CSVExtractor(metaclass=Static):
 
-    @time_execution
-    @memory_usage
+    @time
+    @memory
     def extract_csv():
         """Extracts CSV for preview"""
 
