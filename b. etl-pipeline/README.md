@@ -2,7 +2,7 @@
 
 1️⃣ **Extract (Load to Dask)**
 
-*  Extract data from Salesforce as-is**
+*  Extract data from Salesforce as-is
 *  Convert all columns to strings initially (prevents coercion errors in Dask)
   
 2️⃣ **Automated Data Validation (Before Cleaning)**
