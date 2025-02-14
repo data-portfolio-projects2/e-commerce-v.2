@@ -1,15 +1,15 @@
-class DataDownloader(metaclass=Static):
+class DataDownloader(metaclass=static):
  
-    @time_execution
+    @time
     def authenticate_kaggle():
         """Authenticate Kaggle API"""
-    
-    def initiate_os():
-        """Create download directory if it doesn't exist"""
-    
-    @time_execution
-    @memory_usage
-    def download_data(dataset_name, download_dir):
+
+    @time
+    @memory
+    def download_data():
         """Downloads the dataset from Kaggle"""
-    
-    def __call__(self): 
+      
+    def __call__(self):  
+        self.authenticate_kaggle()
+        self.initiate_os()
+        self.download_data()
