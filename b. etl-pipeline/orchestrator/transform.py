@@ -1,39 +1,31 @@
+class Extractor(metaclass=static):
 
-class Transform(metaclass=static): 
-    
-    def df_extract(file_path):
-        df = transform.extract_df(file_path)
-        df = df.drop(['Add-ons Purchased'], axis=1)
+    def extract_data():
+        df = extract.extract_data()
         return df
     
-    def to_string(df):
-        df = transform.to_string(df)
-        return df
-    
-    def col_lowercase(df):
+    def lowercase_col(df):
         df = transform.lowercase_col(df)
         return df
     
-    def col_remove_space(df):
+    def strip_space(df):
         df = transform.strip_space(df)
         return df
     
-    def col_replace_(df):
+    def replace_(df):
         df = transform.replace_(df)
-        return df
+        return df 
     
-    def savedf(df):
-        df.to_csv(path.df, index=False)
+    def save_col(df):
+        df = extract.save_col(df)
         return df
-    
+
+    @time
+    @memory
     def __call__(self):
-        df = self.df_extract(path.csv)
-        df = df.compute()
-        #df = self.to_string(df)
-        df = self.col_lowercase(df)
-        df = self.col_remove_space(df)
-        df = self.col_replace_(df)
-        df = self.savedf(df)
-
-
-
+        df = self.extract_data()
+        df = self.lowercase_col(df)
+        df = self.strip_space(df)
+        df = self.replace_(df)
+        df = self.save_col(df)
+        
