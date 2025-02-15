@@ -1,10 +1,5 @@
 class DataTransformer(metaclass=xtatic):
 
-    @time
-    @memory
-    def extract_df(file_path):
-        """Extract dask data"""
-    
     def to_string(df):
         """Converting dataframe to string"""
     
