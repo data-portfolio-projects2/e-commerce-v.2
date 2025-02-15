@@ -1,31 +1,15 @@
+class Downloader(metaclass=static):
 
-class Extract(metaclass=static):
+    def authenticate_kaggle():
+        load.authenticate_kaggle()
 
-    def download():
-        download = load()
-        download()
-
-    def extract():
-        df = csv.extract_csv()
-        return df
-        
-    def savedf(df):
-        df.to_csv(path.df, index=False)
-        return df
-
-    def analyze(df):
-        analyze.preview_data(df)
-        df = analyze.check_missing(df)
-        return df
-
-    def save(df):
-        return save.save_missing(df)
+    def initiate_os():
+        load.initiate_os()
+    
+    def download_data():
+        load.download_data()
 
     def __call__(self):
-        self.download()
-        df = self.extract()
-        df = df.compute()
-        df = self.savedf(df)
-        df = self.analyze(df)
-        self.save(df)
-        
+        self.authenticate_kaggle()
+        self.initiate_os()
+        self.download_data()
