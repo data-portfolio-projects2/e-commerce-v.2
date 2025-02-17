@@ -1,18 +1,46 @@
+class DataValidator(metaclass=static):
 
-class product:
-    """Product type validation"""
-    p_type = {'Smartphone', 'Tablet', 'Laptop', 'Smartwatch', 'Headphones'}
-    sku = {'SKU1004', 'SKU1002', 'SKU1005', 'SKU1001', 'SKU1003', 'LTP123',
-        'SMP234', 'TBL345', 'HDP456', 'SWT567'}
-
-class order:
-    """Order status validation"""
-    status = {'Cancelled', 'Completed'}
-
-class ship:
-    """Shipping type validation"""
-    s_type = {'Standard', 'Overnight', 'Express', 'Same Day', 'Expedited'}
-
-class payment:
-    """Payment method validation"""
-    method = {'Credit Card', 'PayPal', 'Cash', 'Debit Card', 'Bank Transfer'}
+    def validate_product():
+        """Validates product type"""
+    
+    def validate_sku():
+        """Validates skus"""
+    
+    def validate_order_status():
+        """Validates order status"""
+    
+    def validate_shipping():
+        """Validates shipping type"""
+        
+    def validate_payment():
+        """Validates payment method"""
+        
+    def validate_gender():
+        """Validates gender category"""
+        
+    def validate_membership():
+        """Validates memmbership category"""
+        
+    def validate_addontotal():
+        """Validates add-on_total"""
+    
+    def validate_age():
+        """Validates age values"""
+    
+    def validate_id():
+        """Validates customer id values"""
+    
+    def validate_date():
+        """Validates date values values"""
+    
+    def validate_rating():
+        """Validates rating values"""
+    
+    def validate_totalprice():
+        """Validates total price values"""
+    
+    def validate_unitprice():
+        """Validates unit price values"""
+        
+    
+    
