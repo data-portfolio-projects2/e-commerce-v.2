@@ -1,8 +1,10 @@
-class DataTransformer(metaclass=xtatic):
 
-    def to_string(df):
-        """Converting dataframe to string"""
-    
+class DataTransformer(metaclass=static):
+
+    def delete_col(df):
+
+    def remove_space(df):
+
     def lowercase_col(df):
         """Transform columns into lowercase"""
     
@@ -11,3 +13,23 @@ class DataTransformer(metaclass=xtatic):
     
     def replace_(df):
         """Replacing space w/ underscore"""
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
