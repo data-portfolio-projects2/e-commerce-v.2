@@ -1,5 +1,8 @@
-extract = Extract()
-extract()
+from orchestrator import Run
 
-transform = Transform()
-transform()
+run = Run()
+run.download()
+run.transform()
+run.validate()
+
+
