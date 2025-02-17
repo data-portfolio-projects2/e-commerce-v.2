@@ -1,12 +1,7 @@
-
 class path:
     """Storing file paths"""
-    download_dir = 
-    output_dir = 
+    download_dir = "raw"
+    output_dir = "processed"
 
-    missing_folder =   
-    duplicate_folder = 
-
-    customer_id = 
-    purchase_date = 
-    
+    missing_folder = "missing_data.csv"  
+    duplicate_folder = "duplicate_data.csv"
