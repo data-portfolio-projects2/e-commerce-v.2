@@ -1,6 +1,6 @@
 run = Run()
-run.download()
+run.extract()
 run.transform()
-run.validate()
+run.load()
 
 
