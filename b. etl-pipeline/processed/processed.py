@@ -1,4 +1,4 @@
-
+class processed(metaclass=static):
 
     def data():
         return dd.read_csv("data.csv")
