@@ -20,3 +20,7 @@
 
 *  Save cleaned data for dashboard ingestion
 *  Keep flagged records for manual review without modifying original files
+
+------
+
+[ETL 1st phase](https://github.com/data-portfolio-projects2/e-commerce-v.2/blob/main/b.%20etl-pipeline/test/etl%20result.ipynb)
