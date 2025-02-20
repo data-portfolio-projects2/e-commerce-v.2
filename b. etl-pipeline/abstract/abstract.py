@@ -94,20 +94,20 @@ class Validator(metaclass=static):
         return validate.validate_unitprice()
 
 
-class Converter(metaclass=static):
+class Loader(metaclass=static):
 
     def completed_orders():
-        return convert.completed_orders()
+        return load.completed_orders()
     
     def transform_price(df):
-        return convert.transform_price(df)
+        return load.transform_price(df)
     
     def transform_dates(df):
-        return convert.transform_dates(df)
+        return load.transform_dates(df)
     
     def create_sales(df):
-        return convert.create_sales(df)
+        return load.create_sales(df)
     
     def create_table(df):
-        return convert.create_table(df)
+        return load.create_table(df)
     
