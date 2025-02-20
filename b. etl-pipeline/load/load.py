@@ -1,4 +1,5 @@
-class Converter(metaclass=static):
+
+class Loader(metaclass=static):
 
     def completed_orders():
         """Filter completed orders"""
