@@ -1,19 +1,23 @@
 class Downloader(metaclass=static):
 
     def authenticate_kaggle():
-        load.authenticate_kaggle()
+        download.authenticate_kaggle()
 
     def initiate_os():
-        load.initiate_os()
+        download.initiate_os()
     
     def download_data():
-        load.download_data()
+        download.download_data()
 
 
 class Transformer(metaclass=static):
 
     def extract_data():
         df = extract.extract_data()
+        return df
+    
+    def order_id(df):
+        df = transform.order_id(df)
         return df
     
     def delete_col(df):
@@ -34,12 +38,16 @@ class Transformer(metaclass=static):
     
     def replace_(df):
         df = transform.replace_(df)
-        return df 
+        return df
     
-    def save_col(df):
-        df = save.save_col(df)
+    def save_df(df):
+        df = save.save_df(df)
         return df
 
+    def sales_data(df):
+        sales = save.sales_data(df)
+        return sales
+    
 
 class Validator(metaclass=static):
              
@@ -84,7 +92,22 @@ class Validator(metaclass=static):
 
     def validate_unitprice():
         return validate.validate_unitprice()
+
+
+class Converter(metaclass=static):
+
+    def completed_orders():
+        return convert.completed_orders()
     
-
-
-
+    def transform_price(df):
+        return convert.transform_price(df)
+    
+    def transform_dates(df):
+        return convert.transform_dates(df)
+    
+    def create_sales(df):
+        return convert.create_sales(df)
+    
+    def create_table(df):
+        return convert.create_table(df)
+    
