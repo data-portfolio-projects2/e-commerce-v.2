@@ -1,6 +1,3 @@
-import logging
-import timeit
-import functools
 
 logging.basicConfig(
     format="{asctime} - {levelname} - {message}",
